@@ -1,0 +1,144 @@
+:root {
+  
+--Soft-blue: hsl(215, 51%, 70%);
+--Cyan: hsl(178, 100%, 50%);
+
+--main-dark-blue : hsl(217, 54%, 11%);  /* (main BG) */
+--card-dark-blue : hsl(216, 50%, 16%);  /* (card BG) */
+--line-dark-blue : hsl(215, 32%, 27%) ;  /* (line) */
+--White: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Outfit", sans-serif; 
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  background-color: var(--main-dark-blue);
+  padding: 1rem;
+}
+img {
+  max-width: 100%;
+  
+}
+
+.card {
+  background-color: var(--card-dark-blue);
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: grid;
+  gap: 1rem;
+  
+}
+
+.card-img-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+.card-img-container img {
+  display: block; /* without this , the overlay and img container would have different  heights , can't put it in img selector or the other images will lose their alignement which is not ideal */
+}
+.overlay {
+position: absolute;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
+background-color: var(--Cyan);
+opacity: 0;
+transition: opacity 0.15s;
+}
+
+.overlay:hover {
+  opacity: 0.4;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.overlay img {
+  position: absolute;
+  right: 136px;
+  bottom: 140px;
+}
+.card-title {
+  font-size: 1.3rem;
+  color: var(--White);
+  font-weight: 600;
+  transition: color 0.15s;
+}
+.card-title:hover {
+  color: var(--Cyan);
+  cursor: pointer;
+}
+.card-description {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--Soft-blue);
+  line-height: 1.5;
+}
+
+.flex-grp {
+  padding-top: 0.75rem;
+  padding-bottom: 1.5rem ;
+  border-bottom: 1px solid var(--line-dark-blue) ;
+  display: flex;
+  justify-content: space-between;
+}
+.ethereum-clr {
+  color: var(--Cyan);
+  font-weight: 300;
+}
+.clock-clr {
+  color: var(--Soft-blue);
+  font-weight: 300;
+}
+
+.indent {
+  margin-left: 0.25rem;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--White);
+  margin-right: 1rem;
+}
+
+.flex-grp-two {
+  display: flex;
+  align-items: center;
+  color: var(--White);
+
+}
+.hover-clr {
+  transition: color 0.15s;
+}
+.hover-clr:hover {
+  color: var(--Cyan);
+  cursor: pointer;
+}
+
+@media (max-width:400px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+  .card-description,
+  .flex-grp-two {
+    font-size: 1rem;
+  }
+}
